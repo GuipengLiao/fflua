@@ -2,29 +2,29 @@
 #define _FF_LUA_TYPE_H_
 
 
-#ifndef  _WIN32
+//#ifndef  _WIN32
 #include <stdint.h>
 #define SPRINTF_F snprintf
-#else
-typedef  long int64_t;
-typedef  unsigned long uint64_t;
-typedef  int int32_t;
-typedef  unsigned int uint32_t;
-typedef  short int16_t;
-typedef  unsigned short uint16_t;
-typedef  char int8_t;
-typedef  unsigned char uint8_t;
-#define SPRINTF_F _snprintf_s
+//#else
+//typedef  long int64_t;
+//typedef  unsigned long uint64_t;
+//typedef  int int32_t;
+//typedef  unsigned int uint32_t;
+//typedef  short int16_t;
+//typedef  unsigned short uint16_t;
+//typedef  char int8_t;
+//typedef  unsigned char uint8_t;
+//#define SPRINTF_F _snprintf_s
 
-struct strtoll_tool_t
-{
-    static long do_strtoll(const char* s, const char*, int){
-        return atol(s);
-    }
-};
-#define strtoll strtoll_tool_t::do_strtoll
-#define strtoull (unsigned long)strtoll_tool_t::do_strtoll
-#endif
+//struct strtoll_tool_t
+//{
+//    static long do_strtoll(const char* s, const char*, int){
+//        return atol(s);
+//    }
+//};
+//#define strtoll strtoll_tool_t::do_strtoll
+//#define strtoull (unsigned long)strtoll_tool_t::do_strtoll
+//#endif
 
 #include <stdlib.h>
 #include <lua.hpp>
